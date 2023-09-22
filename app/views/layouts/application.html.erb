@@ -27,17 +27,17 @@
         <%= link_to "Books" %>
       </li>
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
       <li>
-        <%= link_to "Bookers" %>
+        <%= link_to "Bookers", root_path %>
       </li>
       <li>
-        <%= link_to "Home" %>
+        <%= link_to "Home", root_path %>
       </li>
       <li>
-        <%= link_to "About" %>
+        <%= link_to "About", about_path %>
       </li>
       <li>
         <%= link_to "Sign up", new_user_registration_path %>
