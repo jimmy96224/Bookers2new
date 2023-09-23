@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   
   # get 'users/show'
   # get 'users/edit'
-  resources :users, only: [:new, :create, :index, :show, :edit]
+  resources :users, only: [:index, :show, :edit]
   
   # get 'books/index'
   # get 'books/show'
-  resources :books, only: [:new, :create, :index, :show]
+  resources :books, only: [:create, :index, :show]
 
   
   root to: "homes#top"
