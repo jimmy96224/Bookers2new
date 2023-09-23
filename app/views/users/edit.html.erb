@@ -2,7 +2,6 @@
 
 <%= form_with model: @user do |f| %>
   <label>Name</label>
-  <!--placeholder current user name-->
   <%= f.text_field :name, placeholder: @user.name %>
 　<label>Image</label>
   <%= f.file_field :profile_image, accept: "image/*" %>

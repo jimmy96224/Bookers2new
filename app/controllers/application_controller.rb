@@ -14,10 +14,6 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
-  
-  # # 編集画面から画像を受け取れるよう設定
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.permit(:account_update, keys: %i(profile_image))
-  # end
+
   
 end

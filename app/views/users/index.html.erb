@@ -1,6 +1,15 @@
-
 <h2>User info</h2>
-<%= link_to "(仮)設定アイコン", edit_user_registration_path %>
+
+<div>
+
+　<%= image_tag @user.get_profile_image(100,100) %>
+  <h3>name <%= @user.name %></h3>
+  <h3>introduction <%= @user.introduction %></h3>
+
+</div>
+
+
+<%= link_to "(仮)設定アイコン", edit_user_path(current_user.id) %>
 
 <%= form_with model: @book do |f| %>
  <h2>New book</h2>
@@ -18,15 +27,14 @@
      <tr>
       <th>img</th>
       <th>name</th>
-      <!--<th></th>-->
+      <th>show btn</th>
      </tr>
  </thead>
   <tbody>
 <% @users.each do |user| %>
      <tr>
-         <!--user pic need to be fixed-->
-         <!--<td> image_tag user.get_image </td>-->
-         <!--<td>%= @user.name %></td>-->
+         <td><%= image_tag user.get_profile_image(100,100) %></td>
+         <td><%= user.name %></td>
          <td><%= link_to "show" %></td>
      </tr>
 
