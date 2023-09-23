@@ -3,10 +3,10 @@
 <%= form_with model: @user do |f| %>
   <label>Name</label>
   <!--placeholder current user name-->
-  <%= f.text_field :name %>
+  <%= f.text_field :name, placeholder: @user.name %>
 　<label>Image</label>
-  <%= f.file_field :profile_image accept: "imag/*" %>
+  <%= f.file_field :profile_image, accept: "image/*" %>
   <label>Introduction</label>
   <%= f.text_field :introduction %>
-  <%= f.submit 'Update User' %>>
+  <%= f.submit 'Update User' %>
 <% end %>

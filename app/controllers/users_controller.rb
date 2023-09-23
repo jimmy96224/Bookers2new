@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     @book.save
-    redirect_to "/users/[:current_user.id]"
+    redirect_to "user_path(current_user.id)"
     # if @book.save
     # flash[:notice] = "You have created book successfully."
     # redirect_to user_path(@user.id)
@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
   def show
     @book = Book.new
-    @books = Book.all
+    @user = User.find(current_user.id)
+    @books = @user.books
   end
 
   def index
@@ -28,9 +29,16 @@ class UsersController < ApplicationController
     # @books = Book.all
   end
 
+  def update
+    @user = User.find(current_user.id)
+    @user.update(book_params)
+    redirect_to "user_path(current_user.id)"
+  end
+
 
 
   def edit
+    @user = User.find(current_user.id)
   end
 
   private
