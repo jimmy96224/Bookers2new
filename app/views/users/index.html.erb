@@ -1,24 +1,8 @@
-<h2>User info</h2>
-
-<div>
-
-　<%= image_tag @user.get_profile_image(100,100) %>
-  <h3>name <%= @user.name %></h3>
-  <h3>introduction <%= @user.introduction %></h3>
-
-</div>
+<%= render 'users/profile', user: @user %>
 
 
-<%= link_to "(仮)設定アイコン", edit_user_path(current_user.id) %>
+<%= render 'books/post', book: @book %>
 
-<%= form_with model: @book do |f| %>
- <h2>New book</h2>
-  <label>Title</label>
-    <%= f.text_field :title %>
-  <label>Opinion</label>
-    <%= f.text_field :opinion %>
-  <%= f.submit 'Create Book' %>
-<% end %>
 
 <h2>Users</h2>
 
@@ -35,7 +19,7 @@
      <tr>
          <td><%= image_tag user.get_profile_image(100,100) %></td>
          <td><%= user.name %></td>
-         <td><%= link_to "show" %></td>
+         <td><%= link_to "show", book_path(user.id) %></td>
      </tr>
 
 <% end %>
