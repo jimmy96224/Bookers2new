@@ -19,11 +19,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <% if user_signed_in? %>
-          <%= link_to "Bookers", user_path(current_user.id), class: 'nav-link text-light' %>
-        <% else %>
           <%= link_to "Bookers", root_path, class: 'nav-link text-light' %>
-        <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,7 +29,7 @@
           <ul class="navbar-nav ml-auto">
             <% if user_signed_in? %>
                 <li class="nav-item">
-                  <%= link_to users_path, class: 'nav-link text-light' do %>
+                  <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
                     <i class="fas fa-home"></i> Home
                   <% end %>
                 </li>

@@ -22,7 +22,7 @@
                   <% end %>
                 </td>
                 <td>
-                  <%= @book.opinion %>
+                  <%= @book.body %>
                 </td>
                 <% if @book.user == current_user %>
                 <td><%= link_to "Edit", edit_book_path(@user.id) %></td>
