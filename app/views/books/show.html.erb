@@ -10,7 +10,7 @@
   </ul>
 <% end %>
 
-  <div class="row">
+  <div class="row mt-3">
 
     <div class="col-md-3">
       <%= render 'users/profile', user: @user %>
@@ -31,7 +31,7 @@
                 </td>
              　　<td>
              　  　<%= link_to book_path(@book.id) do %>
-                  <%= @book.title %>
+                    <%= @book.title %>
                   <% end %>
                 </td>
                 <td>
@@ -39,14 +39,14 @@
                 </td>
                 <% if @book.user == current_user %>
                 <td>
-                  <button class="btn btn-success btn-sm">
-                    <%= link_to "Edit", edit_book_path(@book.id) %>
-                  </button>
+                  <div>
+                    <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-success btn-sm" %>
+                  </div>
                 </td>
                 <td>
-                  <button class="btn btn-danger btn-sm">
-                    <%= link_to 'Destroy', book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
-                  </button>
+                  <div>
+                    <%= link_to "Destroy", book_path(@book), class: "btn btn-danger btn-sm", method: :delete, "data-confirm" => "本当に消しますか？" %>
+                  </div>
                 </td>
                 <% end %>
              </tr>
