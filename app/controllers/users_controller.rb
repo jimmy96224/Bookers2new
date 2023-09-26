@@ -5,13 +5,6 @@ class UsersController < ApplicationController
     @book.user_id = current_user.id
     @book.save
     redirect_to user_path(current_user.id)
-    # if @book.save
-    # flash[:notice] = "You have created book successfully."
-    # redirect_to user_path(@user.id)
-    # else
-    # @books = Book.all
-    # render :user_path
-    # end
   end
 
   def show
@@ -24,19 +17,23 @@ class UsersController < ApplicationController
     @user = User.find(current_user.id)
     @users = User.all
     @book = Book.new
-    # @books = Book.all
   end
 
   def update
     @user = User.find(current_user.id)
-    @user.update(user_params)
+    if @user.update(user_params)
+    flash[:notice] = "You have updated user successfully."
     redirect_to user_path(current_user.id)
+    else
+    render :edit
+    end
   end
 
 
 
   def edit
     @user = User.find(current_user.id)
+    
   end
 
   private
