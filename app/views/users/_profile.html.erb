@@ -1,6 +1,6 @@
 <h2>User info</h2>
     <div>
-      
+
       　<%= image_tag user.get_profile_image(100,100) %>
       <table class="table">
         <tbody>
@@ -14,11 +14,13 @@
           </tr>
         </tbody>
       </table>
-      
+
       </div>
-      
+
       <div class="row">
-          <%= link_to edit_user_path(current_user.id) do %>
-            <button type="button" class="btn btn-outline-secondary btn-block"><i class="fas fa-user-cog"></i>
-          <% end %>
+           <%= link_to edit_user_path(user.id) do %>
+              <button type="button" class="btn btn-outline-secondary btn-block"><i class="fas fa-user-cog"></i>
+           <% end %>
+
       </div>
+

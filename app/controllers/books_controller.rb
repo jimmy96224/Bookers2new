@@ -27,9 +27,11 @@ class BooksController < ApplicationController
   end
   
   def edit
+    
     @user = current_user
-    @book = Book.find(@user.book.id)
+    @book = Book.find(params[:id])
     @book.user_id = current_user.id
+    
   end
   
   def destroy
@@ -41,23 +43,19 @@ class BooksController < ApplicationController
   def update
     
     @book = Book.find(params[:id])
-    if @book.update(book_params)
-    flash[:notice] = "Book was successfully updated."
-    redirect_to book_path(@book.id)
-    else
-    @user = User.find(current_user.id)
-    @book = Book.find(@user.id)
-    @book.user_id = current_user.id
-    render :edit
-    end
-    
-    
+      if @book.update(book_params)
+        flash[:notice] = "Book was successfully updated."
+        redirect_to book_path(@book.id)
+      else
+        @user = current_user
+        render :edit
+      end
   end
 
   private
 
   def book_params
-    params.require(:book).permit(:title, :body, :profile_image)
+    params.require(:book).permit(:title, :body)
   end
 
 end
